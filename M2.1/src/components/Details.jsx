@@ -8,8 +8,8 @@ function checkCross(checked) {
     return cross;
   }
 }
-function uploadChange(id, active) {
-  const response = fetch(
+async function uploadChange(id, active) {
+  await fetch(
     `https://mindx-mockup-server.vercel.app/api/resources/Final/${id}?apiKey=689f647d95f60a227657fefc`,
     {
       method: "PUT",
@@ -38,12 +38,11 @@ async function deleteSingle(id) {
 function Details(props) {
   const [checked, setChecked] = useState(!props.active);
   const id = props._id;
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     setChecked(!e.target.checked);
-    uploadChange(id, !e.target.checked);
+    await uploadChange(id, !e.target.checked);
     alert("Task updated successfully!");
     props.onFormSubmit();
-    checkCross(setChecked);
   };
   const handleDelete = async () => {
     await deleteSingle(id);

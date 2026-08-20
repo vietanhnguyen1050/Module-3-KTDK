@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import React from "react";
-import AddForm from "../addform";
+import AddForm from "../Addform";
 import Details from "../Details";
 import { Button } from "antd";
 import "./All.css";
@@ -33,7 +33,7 @@ export async function deleteData(id) {
 }
 
 async function massDelete(idList) {
-  for (const id of idList) {
+  const deletePromises = idList.map(async (id) => {
     try {
       const res = await fetch(
         `https://mindx-mockup-server.vercel.app/api/resources/Final/${id}?apiKey=689f647d95f60a227657fefc`,
@@ -45,7 +45,8 @@ async function massDelete(idList) {
     } catch (err) {
       console.error(`Error deleting ${id}:`, err);
     }
-  }
+  });
+  await Promise.all(deletePromises);
 }
 
 function All({ pagekey, onUpdate, refreshKey }) {

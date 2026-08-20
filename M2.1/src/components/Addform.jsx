@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Button, Input, Space } from "antd";
-function uploadData(data) {
+async function uploadData(data) {
     const api = 'https://mindx-mockup-server.vercel.app/api/resources/Final?apiKey=689f647d95f60a227657fefc';
-    fetch(api, {
+    await fetch(api, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',},
@@ -14,9 +14,9 @@ function AddForm({onFormSubmit}) {
     const handleChange = (e) => {
         setInput(e.target.value);
     }
-    const handleSubmit = (e) => {
-        uploadData({title: input, active: true});
+    const handleSubmit = async (e) => {
         e.preventDefault();
+        await uploadData({title: input, active: true});
         setInput("");
         alert("Added successfully!");
         onFormSubmit();
