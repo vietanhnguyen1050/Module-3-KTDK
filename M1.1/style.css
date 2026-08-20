@@ -1,0 +1,361 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #f1f5f9;
+  color: #334155;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 16px;
+}
+
+.main-container {
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  padding: 36px 40px;
+  width: 100%;
+  max-width: 860px;
+}
+
+/* Nút Bắt đầu / Kết thúc */
+.top-controls {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 10px 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-start {
+  background-color: #10b981;
+  color: #ffffff;
+}
+
+.btn-start:hover {
+  background-color: #059669;
+}
+
+.btn-end {
+  background-color: #ef4444;
+  color: #ffffff;
+}
+
+.btn-end:hover {
+  background-color: #dc2626;
+}
+
+.btn-restart {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 10px 24px;
+}
+
+.btn-restart:hover {
+  background-color: #2563eb;
+}
+
+/* Khung trò chơi chính */
+.game-content {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  align-items: flex-start;
+  margin-bottom: 36px;
+}
+
+.board-wrapper {
+  position: relative;
+}
+
+/* Bảng xếp hình (3 hàng x 4 cột) */
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 90px);
+  grid-template-rows: repeat(3, 90px);
+  gap: 12px;
+  padding: 12px;
+  background-color: #f8fafc;
+  border-radius: 16px;
+  border: 1px solid #e2e8f0;
+  user-select: none;
+}
+
+/* Từng ô số */
+.tile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 800;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+}
+
+.tile:hover:not(.tile-black) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+/* Cặp màu chuẩn 12 ô theo đề bài */
+.tile-1 { background-color: #dcfce7; color: #16a34a; } /* green-100 / green-500 */
+.tile-2 { background-color: #fee2e2; color: #ef4444; } /* red-100 / red-500 */
+.tile-3 { background-color: #dbeafe; color: #3b82f6; } /* blue-100 / blue-500 */
+.tile-4 { background-color: #f3e8ff; color: #a855f7; } /* purple-100 / purple-500 */
+.tile-5 { background-color: #fef9c3; color: #ca8a04; } /* yellow-100 / yellow-500 */
+.tile-6 { background-color: #fce7f3; color: #ec4899; } /* pink-100 / pink-500 */
+.tile-7 { background-color: #e0e7ff; color: #6366f1; } /* indigo-100 / indigo-500 */
+.tile-8 { background-color: #f3f4f6; color: #6b7280; } /* gray-100 / gray-500 */
+.tile-9 { background-color: #d1fae5; color: #10b981; } /* emerald-100 / emerald-500 */
+.tile-10 { background-color: #fef3c7; color: #d97706; } /* amber-100 / amber-500 */
+.tile-11 { background-color: #ecfccb; color: #65a30d; } /* lime-100 / lime-500 */
+.tile-black {
+  background-color: #000000;
+  cursor: default;
+  box-shadow: none;
+}
+
+/* Sidebar bên phải */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 220px;
+}
+
+.card {
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  padding: 16px;
+  text-align: center;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #64748b;
+  margin-bottom: 8px;
+}
+
+/* Đồng hồ đếm giờ */
+.timer-card {
+  background-color: #d1fae5;
+  border-color: #a7f3d0;
+}
+
+.timer-card .card-title {
+  color: #065f46;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.timer-display {
+  font-size: 28px;
+  font-weight: 800;
+  color: #047857;
+  letter-spacing: 1px;
+}
+
+.steps-info {
+  margin-top: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #065f46;
+}
+
+/* Hướng dẫn di chuyển */
+.instruction-card {
+  background-color: #ffffff;
+}
+
+.keys-grid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.key-row {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.key-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 28px;
+  height: 28px;
+  background-color: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  color: #475569;
+  box-shadow: 0 2px 0 #cbd5e1;
+}
+
+.divider-text {
+  font-size: 12px;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+/* Modal You Win */
+.win-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+  animation: fadeIn 0.3s ease;
+}
+
+.win-overlay.hidden {
+  display: none;
+}
+
+.win-modal {
+  background: #ffffff;
+  padding: 24px 28px;
+  border-radius: 16px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  animation: scaleUp 0.3s ease;
+}
+
+.win-badge {
+  font-size: 40px;
+  margin-bottom: 6px;
+}
+
+.win-title {
+  font-size: 26px;
+  font-weight: 800;
+  color: #10b981;
+  margin-bottom: 8px;
+}
+
+.win-stats {
+  font-size: 14px;
+  color: #64748b;
+  margin-bottom: 18px;
+}
+
+/* Bảng lịch sử lượt chơi */
+.history-section {
+  border-top: 1px solid #e2e8f0;
+  padding-top: 24px;
+}
+
+.history-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #334155;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.table-container {
+  overflow-x: auto;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.history-table th {
+  background-color: #f8fafc;
+  color: #64748b;
+  font-weight: 700;
+  padding: 10px 14px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+}
+
+.history-table td {
+  padding: 10px 14px;
+  text-align: center;
+  border: 1px solid #e2e8f0;
+  color: #475569;
+}
+
+.history-table tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+.no-history {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+  font-style: italic;
+  padding: 14px;
+  border: 1px dashed #cbd5e1;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleUp {
+  from { transform: scale(0.85); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* Responsive */
+@media (max-width: 680px) {
+  .game-content {
+    flex-direction: column;
+    align-items: center;
+  }
+  .sidebar {
+    width: 100%;
+    max-width: 380px;
+  }
+  .game-board {
+    grid-template-columns: repeat(4, 72px);
+    grid-template-rows: repeat(3, 72px);
+    gap: 8px;
+    padding: 8px;
+  }
+  .tile {
+    font-size: 18px;
+  }
+}

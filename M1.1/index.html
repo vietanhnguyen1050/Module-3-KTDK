@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Xếp Hình - Module 1</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="main-container">
+    <!-- Nút Bắt đầu / Kết thúc -->
+    <div class="top-controls">
+      <button id="btn-start" class="btn btn-start">Bắt đầu</button>
+    </div>
+
+    <div class="game-content">
+      <!-- Bảng Game Board (3 hàng x 4 cột) -->
+      <div class="board-wrapper">
+        <div id="game-board" class="game-board">
+          <!-- 12 ô sẽ được render từ Javascript -->
+        </div>
+
+        <!-- Thông báo thắng YOU WIN! -->
+        <div id="win-overlay" class="win-overlay hidden">
+          <div class="win-modal">
+            <div class="win-badge">🏆</div>
+            <h2 class="win-title">YOU WIN!</h2>
+            <p id="win-stats" class="win-stats">Bạn đã hoàn thành trong 00:00 với 0 bước đi!</p>
+            <button id="btn-restart" class="btn btn-restart">Chơi lại</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Khung bên phải: Đồng hồ & Hướng dẫn -->
+      <div class="sidebar">
+        <!-- Đồng hồ -->
+        <div class="card timer-card">
+          <div class="card-title">Đồng Hồ</div>
+          <div id="timer-display" class="timer-display">00:00</div>
+          <div class="steps-info">Số bước: <span id="step-count">0</span></div>
+        </div>
+
+        <!-- Hướng dẫn di chuyển -->
+        <div class="card instruction-card">
+          <div class="card-title">Hướng Dẫn Di Chuyển</div>
+          <div class="keys-grid">
+            <div class="arrow-keys">
+              <div class="key-row">
+                <span class="key-btn">↑</span>
+              </div>
+              <div class="key-row">
+                <span class="key-btn">←</span>
+                <span class="key-btn">↓</span>
+                <span class="key-btn">→</span>
+              </div>
+            </div>
+            <div class="divider-text">hoặc</div>
+            <div class="wasd-keys">
+              <div class="key-row">
+                <span class="key-btn">W</span>
+              </div>
+              <div class="key-row">
+                <span class="key-btn">A</span>
+                <span class="key-btn">S</span>
+                <span class="key-btn">D</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bảng lịch sử lượt chơi -->
+    <div class="history-section">
+      <h3 class="history-title">Lịch Sử Lượt Chơi</h3>
+      <div class="table-container">
+        <table class="history-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">#</th>
+              <th style="width: 45%;">Bước đi</th>
+              <th style="width: 40%;">Thời Gian</th>
+            </tr>
+          </thead>
+          <tbody id="history-body">
+            <!-- Dòng lịch sử sẽ được thêm vào đây -->
+          </tbody>
+        </table>
+        <div id="no-history" class="no-history">Chưa có lịch sử lượt chơi</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
