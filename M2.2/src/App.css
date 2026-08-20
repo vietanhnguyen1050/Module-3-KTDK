@@ -1,0 +1,10 @@
+.App {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(30, 30, 30);
+}
+body {
+    margin: 0;
+    padding: 0;
+}

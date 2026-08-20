@@ -1,0 +1,70 @@
+.homecard {
+    width: 48%;
+    min-width: 0;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    color: #fff;
+    box-shadow: none;
+    border: 2px solid transparent;
+    transition: border-color 0.2s;
+    background: transparent;
+}
+
+.homecard:hover {
+    cursor: pointer;
+    border-color: white;
+}
+
+.homecard-info {
+    padding: 0; /* padding handled by AntD Card bodyStyle */
+}
+
+.homecard-img-wrapper {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 10px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.homecard-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* New/label text */
+.homecard .homecard-new {
+    color: #ff2222;
+    font-weight: bold;
+}
+
+/* Car name and price */
+.homecard .homecard-name,
+.homecard .homecard-price {
+    color: #fff;
+}
+
+/* See details link */
+.homecard .homecard-details-link {
+    color: #fff;
+    text-decoration: underline;
+    cursor: pointer;
+    transition: color 0.2s;
+    font-weight: 500;
+    display: inline-block;
+    margin-top: 8px;
+}
+
+.homecard .homecard-details-link:hover {
+    color: #2196f3;
+    text-decoration: underline;
+}
+
+.homecard-white {
+    color: #fff !important;
+}

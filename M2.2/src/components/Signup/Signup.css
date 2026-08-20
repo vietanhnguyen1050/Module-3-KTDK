@@ -1,0 +1,36 @@
+.signup-form {
+    max-width: 400px;
+    margin: 40px auto;
+    margin-top: 50px;
+    padding: 32px 24px;
+}
+.signup-form-input .ant-form-item-label > label {
+    width: 100%;
+}
+.signup-form-input .ant-input,
+.signup-form-input .ant-input-password {
+    width: 100%;
+    min-width: 0;
+}
+.signuptext {
+    margin-bottom: 24px;
+    font-weight: bold;
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+}
+
+.signup-form-input {
+    width: 100%;
+}
+
+.signup-form-text {
+    color: white;
+}
+
+.signup-form .ant-form-item-label > label {
+    color: #fff;
+} 
+.signup-form .ant-checkbox-wrapper {
+    color: #fff;
+}

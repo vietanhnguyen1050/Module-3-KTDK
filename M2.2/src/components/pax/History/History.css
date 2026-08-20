@@ -1,0 +1,16 @@
+.history-container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.history {
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color : white;
+}
+.sellhistory, .buyhistory {
+    width: 100%;
+}

@@ -1,0 +1,32 @@
+.details-container {
+width: 100vw;
+min-height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.details-card {
+width: 60%;
+max-width: 75%;
+min-height: 100vh;
+margin: 0 auto;
+align-self: center;
+border-radius: 16px;
+box-shadow: 0 4px 24px rgba(255, 255, 255, 0.08);
+padding: 32px;
+}
+.details-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-width: 50%;
+    margin: 0 auto;
+    border-radius: 4%;
+}
+.details-info {
+    width: 100%;
+}
+.details-white {
+    color: #fff !important;
+}
