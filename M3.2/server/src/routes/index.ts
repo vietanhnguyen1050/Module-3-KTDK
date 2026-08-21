@@ -2,7 +2,7 @@ import { Router } from 'express';
 import authRoutes from './auth.routes';
 import userRoutes from './user.routes';
 import dashboardRoutes from './dashboard.routes';
-import { dataSourceRoutes, alertRoutes, reportRoutes, supportRoutes } from './aux.routes';
+import { dataSourceRoutes, alertRoutes, reportRoutes, supportRoutes } from './auxiliary.routes';
 import adminRoutes from './admin.routes';
 
 const router = Router();
