@@ -1,0 +1,14 @@
+{
+  "name": "crypto-planet-system",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Crypto Planet - Trading Exchange Platform (Module 4.2)",
+  "scripts": {
+    "dev": "concurrently \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "install:all": "npm install && npm install --prefix server && npm install --prefix client",
+    "build": "npm run build --prefix server && npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
